@@ -1,0 +1,16 @@
+﻿h3 {
+    margin: auto;
+    text-align: center;
+}
+
+.content-row {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.description {
+    padding-left: 20px;
+    padding-right: 20px;
+}
