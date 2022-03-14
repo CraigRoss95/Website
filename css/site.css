@@ -90,12 +90,13 @@ body {
     background-position: bottom center;
 }
 
-.contact-info{
-    text-align:center;
-    background-color:darkgrey;
+.contact-info {
+    text-align: center;
+    background-color: darkgrey;
+    font-size: 2vw;
 }
 .nav-bar {
-    background-color: burlywood;
+    background-color: cadetblue;
     position: fixed;
     width: 100%;
     height: 3.5vw;
@@ -107,7 +108,24 @@ body {
     vertical-align: middle;
 }
 .nav-bar-option{
+    text-wrap:normal;
     font-size: 2vw;
     display:inline;
     vertical-align:middle;
+    height:100%;
+    width:100%;
+    color:white;
+    }
+
+.nav-bar-option:hover{
+    background-color:aquamarine;
+}
+
+.nav-bar-selected {
+    border-style: solid;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: .2vw;
+    border-color: white;
 }
