@@ -12,6 +12,8 @@ function Project(title, imageURL, description) {
 var entryArr = [];
 
 //make these the same size
+var fis = new Image();
+fis.src = "Assets/portfolio-pictures/FIS.jpg";
 
 var dv = new Image();
 dv.src = "Assets/portfolio-pictures/dv.jpg";
@@ -33,6 +35,13 @@ unityImage.src = "Assets/portfolio-pictures/Unity3dDemo.png";
 
 var JohnathanImage = new Image();
 JohnathanImage.src = "Assets/portfolio-pictures/Jonathan.png";
+
+entryArr.push({
+    title: "FIS",
+    imageURL: fis.src,
+    description: "I currently work at FIS (Fidelity National Information Services), on the Tokens Team. At FIS we use a microservice architecture, we are all cogs in a much larger machine, our cog is the Tokens Service. This is where I learned a tech stack that was almost entirely new to me including Java, Spring, and Docker. I started this job in the summer of 2021, and have been working from my home office ever since. "
+});
+
 entryArr.push({
     title: "DonorView",
     imageURL: dv.src,
