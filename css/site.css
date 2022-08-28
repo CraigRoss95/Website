@@ -84,10 +84,14 @@ body {
 }
 .content-wrapper {
     padding-top: 3.5vw;
+    padding-left: 0px;
+    padding-right:0px;
+    padding-bottom:0px
 }
 .content-wrapper-sidebar{
     background-image: url(../Assets/background.jpg);
     background-position: bottom center;
+    padding: 0px;
 }
 
 .contact-info {
