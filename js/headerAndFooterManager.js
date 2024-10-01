@@ -1,11 +1,19 @@
-var test = ""
+
 class SpecialHeader extends HTMLElement {
 
-    connectedCallback() {
-        this.HTMLElement = $.get("header.html", function (data) {
-            alert(data)
-        },"text")
-        alert (this.HTMLElement)
+    connectedCallback() { 
+        var data;
+        
+        $.ajax({
+            url: "header.html",
+            data: data,
+            async: false,
+            success: function (data) {
+                document.getElementById('special-header').innerHTML= data;
+                },
+            dataType: "text"
+        });
+
     }
 }
 
