@@ -5,142 +5,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/about.css" />
-
-    <script src="js/other.js"></script>
-</head>
-<body>
-    <special-header id ="special-header" ></special-header>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/headerManager.js"></script>
-    
-    <div class="content-wrapper row" style="position: relative; ">
-        <div class="col-2 content-wrapper-sidebar" style="padding:0">
-
-        </div>
-        <div class="col-8 content" style="padding-left:0px; padding-right:0px;">
-
-            <div class="row">
-
-                <div class=" col-1">
-
-                </div>
-                <div class="col-10">
-
-                    <div class="row" style="padding-top:10%;">
-                        <div class=" col-1">
-
-                        </div>
-
-                        <div class="col-10">
-                            <img id="portfolio-image" style="margin: auto;" src="Assets/portfolio-pictures/FIS.jpg" />
-                        </div>
-                        <div class=" col-1">
-
-                        </div>
-
-                    </div>
-
-                        <div class="row" style="margin-bottom:30px;">
-                            <div style="margin: auto;">
-                                <button id="0" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/FIS-icon.jpg" /> </button>
-                                <button id="1" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/dv-icon.jpg" /> </button>
-                                <button id="2" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/yoda-icon.png" /> </button>
-                                <button id="3" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/A-icon.png" /> </button>
-                                <button id="4" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/BA-icon.png" /> </button>
-                                <button id="5" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/smoleMe.jpg" /> </button>
-                                <button id="6" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/Unity3dDemo-icon.png" /> </button>
-                                <button id="7" class="clickable-icon" onClick="clickIcon(this.id)"> <img src="Assets/icons/Jonathan-icon.png" /> </button>
-
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-1">
-
-                            </div>
-                            <div class="col-10">
-                                <div class="row" style="padding-bottom:20px;">
-
-                                    <h2 id="portfolio-title" style="margin: auto;">FIS</h2>
-
-                                </div>
-
-                                <div class="row" style="min-height: 300px;">
-                                    <p id="portfolio-desc" style="padding">
-                                        I currently work at FIS (Fidelity National Information Services), on the Tokens Team. At FIS we use a microservice architecture, we are all cogs in a much larger machine, our cog is the Tokens Service. This is where I learned a tech stack that was almost entirely new to me including Java, Spring, and Docker. I started this job in the summer of 2021, and have been working from my home office ever since.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-1">
-
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-1">
-
-                </div>
-            </div>
-
-            <div class="contact-info col-12">
-                <div class="row">
-                    <h2 style="text-align: center; width: 100%">
-                        Contact Craig
-                    </h2>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-
-                    </div>
-                    <div class="col-4">
-                        <a href="https://github.com/CraigRoss95/">Github</a> 
-                    </div>
-                    <div class="col-4">
-                        <a href="https://www.linkedin.com/in/craigross95/">Linkedin</a>
-                    </div>
-                    <div class="col-2">
-
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-2">
-
-                    </div>
-                    <div class="col-4">
-                        
-                    </div>
-                    <div class="col-4">
-
-                    </div>
-                    <div class="col-2">
-
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-2 content-wrapper-sidebar">
-
-        </div>
-
-    </div>
-
-</body>
-</html>
-
-<html>
-<head>
-    <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/portfolio.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/generateSkeleton.js"></script>
+    <script src="js/headerManager.js"></script>
+    <script src="js/contentManager.js"></script>
+    <script src="js/footerManager.js"></script>
+    
     <script src="js/portolio.js"></script>
+
+    
 </head>
 <body>
-    
+    <special-skeleton id ="special-skeleton" ></skeleton-footer>
 </body>
-
 </html>
+
