@@ -6,43 +6,17 @@
 
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/about.css" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script src="js/generateSkeleton.js"></script>
+    <script src="js/headerManager.js"></script>
+    <script src="js/contentManager.js"></script>
+    <script src="js/footerManager.js"></script>
 
 </head>
 <body>
-    
-    <special-header id ="special-header" ></special-header>
-    <script src="js/headerManager.js"></script>
-
-    <div class="content-wrapper row" style="position: relative; ">
-        <div class="col-2 content-wrapper-sidebar" style="padding:0">
-
-        </div>
-        <div class="col-8 content" style="padding-left:0px; padding-right:0px;">
-            <special-content id ="special-content" ></special-header>
-            <script src="js/contentManager.js"></script>
-        </div>
-
-        <div class="col-2 content-wrapper-sidebar">
-
-        </div>
-
-    </div>
-    <div class="row" style="position: relative; ">
-        <div class="col-2 content-wrapper-sidebar" style="padding:0">
-
-        </div>
-        <div class="col-8 content" style="padding-left:0px; padding-right:0px;">
-            <special-footer id ="special-footer" ></special-footer>
-            <script src="js/footerManager.js"></script>
-        </div>
-
-        <div class="col-2 content-wrapper-sidebar">
-
-        </div>
-    </div>
-
-
+    <special-skeleton id ="special-skeleton" ></skeleton-footer>
 </body>
 
 </html>
