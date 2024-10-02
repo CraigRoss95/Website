@@ -13,10 +13,10 @@ class SpecialHeader extends HTMLElement {
                 switch(fileName[0])
                 {
 
-                    case "portfolio.html":
+                    case "portfolio":
                         document.getElementById("nav-bar-portfolio").className += "nav-bar-selected";
                         break;
-                    case "other.html":
+                    case "other":
                         document.getElementById("nav-bar-other").className += "nav-bar-selected";   
                         break; 
                     default:
