@@ -135,3 +135,7 @@ body {
     border-bottom-width: .2vw;
     border-color: white;
 }
+.strip-left-right-margins {
+  margin-left: 0px; 
+  margin-right: 0px;
+}
