@@ -136,6 +136,7 @@ body {
 
   .nav-bar-text{
     margin-bottom: 0px;
+    text-align: left;
   }
   @media (max-width:767px)
   {
@@ -151,6 +152,9 @@ body {
     }
     .nav-bar-text {
       font-size: 2em;
+    }
+    .navbar-icon {
+      font-size:2em ;
     }
     .content-wrapper {
       padding-top: 18vw;
