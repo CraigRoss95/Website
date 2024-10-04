@@ -5,7 +5,7 @@ class SpecialFooter extends HTMLElement {
         var data;
         
         $.ajax({
-            url: "footer.html",
+            url: "/htmlTemplates/footer.html",
             data: data,
             success: function (data) {
                 document.getElementById('special-footer').innerHTML= data;

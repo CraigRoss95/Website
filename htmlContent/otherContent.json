@@ -1,0 +1,18 @@
+{ "content" : [
+    {
+      "title" : "My Family",
+      "image" : "Assets/Family.jpg",
+      "text" : "htmlContent/otherHtmlTextFields/myFamily.html"
+    },
+    {
+      "title" : "Baked Beans Recipe",
+      "image" : "Assets/beanpot.png",
+      "text" : "htmlContent/otherHtmlTextFields/bakedBeansRecipe.html"
+    },
+    {
+      "title" : "Dog",
+      "image" : "Assets/Dixie.png",
+      "text" : "htmlContent/otherHtmlTextFields/dog.html"
+    }
+]
+}

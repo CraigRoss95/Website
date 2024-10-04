@@ -1,0 +1,25 @@
+{ "content" : [
+  {
+    "title" : "About Me",
+    "image" : "Assets/me.jpg",
+    "text" : "htmlContent/indexHtmlTextFields/aboutMe.html"
+  },
+  {
+    "title" : "Work Experience",
+    "image" : "Assets/work.jpg",
+    "text" : "htmlContent/indexHtmlTextFields/workExperience.html"
+  },
+  {
+    "title" : "My Education",
+    "image" : "Assets/grad.jpg",
+    "text" : "htmlContent/indexHtmlTextFields/myEducation.html"
+  },
+  {
+    "title" : "My Skills",
+    "image" : "Assets/skills.png",
+    "text" : "htmlContent/indexHtmlTextFields/mySkills.html"
+  }
+]
+
+}
+
