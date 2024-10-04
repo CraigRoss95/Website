@@ -4,10 +4,16 @@
 }
 
 .content-row {
+    background-color: wheat;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-left: 0px;
     margin-right: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.content-row-alt {
+    background-color: burlywood;
 }
 
 

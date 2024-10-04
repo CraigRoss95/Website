@@ -4,7 +4,7 @@ class SpecialSkeleton extends HTMLElement {
         var data;
         
         $.ajax({
-            url: "skeleton.html",
+            url: "htmlTemplates/skeleton.html",
             data: data,
             success: function (data) {
                 document.getElementById('special-skeleton').innerHTML= data;

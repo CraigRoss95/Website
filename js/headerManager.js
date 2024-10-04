@@ -5,7 +5,7 @@ class SpecialHeader extends HTMLElement {
         var data;
         
         $.ajax({
-            url: "header.html",
+            url: "/htmlTemplates/header.html",
             data: data,
             success: function (data) {
                 var fileName = location.href.split("/").slice(-1); 
