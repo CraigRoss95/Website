@@ -3,9 +3,14 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* Sticky footer styles
 -------------------------------------------------- */
+body {
+  background-color: darkgreen !important;
+}
+
 .border-top {
   border-top: 0px;
 }
+
 .border-bottom {
   border-bottom: 0px;
 }
@@ -28,19 +33,14 @@ button.accept-policy {
     background: none;
 }
 .container {
-    background-color: aliceblue;
     padding-top: 0px;
 
 }
 
-.main-container{
-    padding-top: 140px;
-}
 .navbar-nav {
     text-align: center;
 }
 .content-wrapper {
-    padding-top: 3vw;
     padding-left: 0px;
     padding-right:0px;
     padding-bottom:0px
@@ -57,28 +57,10 @@ button.accept-policy {
 
 }
 
-.contact-info {
-    text-align: center;
-    background-color: darkgreen;
-    color:goldenrod;
-    font-size: 2vw;
-}
-.contact-info-single {
-  text-align: left;
-  background-color: darkgreen;
-  color:goldenrod;
-  font-size: 2vw;
-  width: 25%;
-}
-.contact-info-single:hover {
-  color: gold;
-  text-decoration-line:none;
-}
 .nav-bar {
     background-color: darkgreen;
     position: fixed;
     width: 100%;
-    min-height: fit-content;
     z-index: 1;
 }
 .nav-bar-options {
@@ -89,14 +71,19 @@ button.accept-policy {
 }
 .nav-bar-option{
   font-weight: bold;
-    text-wrap:normal;
-    font-size: 2vw;
-    vertical-align:middle;
-    height:100%;
-    width:33.33%;
-    color:goldenrod;
-    padding-left: 0px;
-    padding-right: 0px;
+  text-wrap:normal;
+  font-size: 2vw;
+  vertical-align:middle;
+  height:100%;
+  width:33.33%;
+  color:goldenrod;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-color: darkgreen;
     }
   .mobile-nav-col
   {
@@ -108,7 +95,7 @@ button.accept-policy {
     background-color: green;
     color: gold;
     text-decoration-line:none;
-    border-color: gold;
+    border-color: green;
 }
 
 .nav-bar-selected {
@@ -116,7 +103,6 @@ button.accept-policy {
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-    border-bottom-width: .2vw;
     border-color: goldenrod;
 }
 .nav-bar-selected:hover {
@@ -126,7 +112,23 @@ button.accept-policy {
   margin-left: 0px; 
   margin-right: 0px;
 }
-
+.contact-info {
+  text-align: center;
+  background-color: darkgreen;
+  color:goldenrod;
+  font-size: 2vw;
+}
+.contact-info-single {
+text-align: left;
+background-color: darkgreen;
+color:goldenrod;
+font-size: 2vw;
+width: 25%;
+}
+.contact-info-single:hover {
+color: gold;
+text-decoration-line:none;
+}
 .contact-spacer{
   width: 0px;
 }
@@ -142,9 +144,6 @@ button.accept-policy {
     .mobile-nav-col {
       min-width: 20%;
     }
-    .nav-bar-options{
-      height: fit-content;
-    }
     .nav-bar-option{
       
       min-width: 60%;
@@ -154,10 +153,6 @@ button.accept-policy {
     }
     .navbar-icon {
       font-size:2em ;
-    }
-    .content-wrapper {
-      padding-top: 18vw;
-
     }
     .nav-bar-selected {
       border-bottom-width: 1vw;

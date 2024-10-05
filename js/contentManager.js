@@ -2,6 +2,7 @@
 class SpecialContent extends HTMLElement {
 
     connectedCallback() { 
+        
         var data;
         var fileName = location.href.split("/").slice(-1); 
         var contentFileDir;
@@ -14,9 +15,13 @@ class SpecialContent extends HTMLElement {
                     data: data,
                     success: function (data) {
                         document.getElementById('special-content').innerHTML= data;
+                        
                     },
+                    
                     dataType: "text"
                 });
+                fadeInDoc();
+
                 break;
             case "other":
                 populateRowsViaJson("htmlContent/otherContent.json");
@@ -57,6 +62,9 @@ function populateRowsViaJson(filename) {
             }
         }
     })
+    fadeInDoc();
+}
+
     function getHtmlTemplate(i) {
         if (i%2 == 0) {
             return "htmlTemplates/contentRow.html";
@@ -82,6 +90,10 @@ function populateRowsViaJson(filename) {
         });
         return htmlData;
     }
-}
+
+    function fadeInDoc () {
+        $("#special-skeleton").fadeIn(500);
+
+    }
 customElements.define('special-content', SpecialContent);
 
