@@ -14,13 +14,13 @@ class SpecialHeader extends HTMLElement {
                 {
 
                     case "portfolio":
-                        document.getElementById("nav-bar-portfolio").className += "nav-bar-selected";
+                        document.getElementById("nav-bar-portfolio").className += " nav-bar-selected";
                         break;
                     case "other":
-                        document.getElementById("nav-bar-other").className += "nav-bar-selected";   
+                        document.getElementById("nav-bar-other").className += " nav-bar-selected";   
                         break; 
                     default:
-                        document.getElementById("nav-bar-about-me").className += "nav-bar-selected";
+                        document.getElementById("nav-bar-about-me").className += " nav-bar-selected";
                         break;
                 }
             },
