@@ -1,6 +1,7 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
+﻿:root {
+  --navBarSpace: 4vw;
+  --navBarSpaceMobile: 16vw;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 body {
@@ -43,8 +44,9 @@ button.accept-policy {
 .content-wrapper {
     padding-left: 0px;
     padding-right:0px;
-    padding-bottom:0px
-}
+    padding-bottom:0px;
+    padding-top: var(--navBarSpace);
+  }
 .content-wrapper-sidebar-left,
 .content-wrapper-sidebar-right{
     background-image: url(../Assets/background.jpg);
@@ -58,14 +60,14 @@ button.accept-policy {
 }
 
 .nav-bar {
-    background-color: darkgreen;
+    background-color: blue;
     position: fixed;
     width: 100%;
     z-index: 1;
 }
 .nav-bar-options {
     text-align: center;
-    height: fit-content;
+    height: 100%;
     width: 33%;
     vertical-align: middle;
 }
@@ -74,7 +76,7 @@ button.accept-policy {
   text-wrap:normal;
   font-size: 2vw;
   vertical-align:middle;
-  height:100%;
+  height:var(--navBarSpace);
   width:33.33%;
   color:goldenrod;
   padding-left: 0px;
@@ -155,7 +157,7 @@ text-decoration-line:none;
       font-size:2em ;
     }
     .nav-bar-selected {
-      border-bottom-width: 1vw;
+      border-bottom-width: 0.5vw;
   }
     .contact-info-single {
       width: 66.66%;
@@ -164,4 +166,16 @@ text-decoration-line:none;
     .contact-spacer {
       width: 16.66%;
     }
+    .nav-bar{
+      height: var(--navBarSpaceMobile);
+    }
+    .content-wrapper{
+      
+    padding-top: var(--navBarSpaceMobile);
+    }
+    .nav-bar-option {
+      height: 33.33%;
+    }
+    
+
 }
