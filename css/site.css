@@ -60,10 +60,11 @@ button.accept-policy {
 }
 
 .nav-bar {
-    background-color: blue;
+    background-color: darkgreen;
     position: fixed;
     width: 100%;
     z-index: 1;
+    justify-content: center;
 }
 .nav-bar-options {
     text-align: center;
