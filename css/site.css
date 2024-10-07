@@ -1,6 +1,6 @@
 ﻿:root {
-  --navBarSpace: 4vw;
-  --navBarSpaceMobile: 16vw;
+  --navBarSpace: 3.5vw;
+  --navBarSpaceMobile: 18vw;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -87,6 +87,7 @@ button.accept-policy {
   border-left-width: 0px;
   border-right-width: 0px;
   border-color: darkgreen;
+  border-bottom-width: 0.5vw;
     }
   .mobile-nav-col
   {
@@ -157,9 +158,6 @@ text-decoration-line:none;
     .navbar-icon {
       font-size:2em ;
     }
-    .nav-bar-selected {
-      border-bottom-width: 0.5vw;
-  }
     .contact-info-single {
       width: 66.66%;
       font-size: 2em;
