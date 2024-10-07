@@ -140,6 +140,11 @@ text-decoration-line:none;
     margin-bottom: 0px;
     text-align: left;
   }
+  .icon-col {
+    display:inline-block;
+    align-content: center;
+
+  }
   @media (max-width:767px)
   {
     html {
@@ -154,9 +159,13 @@ text-decoration-line:none;
     }
     .nav-bar-text {
       font-size: 2em;
+      max-height: 1.9em;
+      overflow: hidden;
+      text-overflow: clip;
     }
-    .navbar-icon {
+    .nav-bar-icon {
       font-size:2em ;
+      align-items: baseline;
     }
     .contact-info-single {
       width: 66.66%;
