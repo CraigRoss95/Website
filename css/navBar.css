@@ -1,0 +1,90 @@
+:root {
+    --navBarSpace: 3.5vw;
+    --navBarSpaceMobile: 18vw;
+  }
+  .nav-bar {
+    background-color: darkgreen;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    justify-content: center;
+}
+.nav-bar-options {
+    text-align: center;
+    height: 100%;
+    width: 33%;
+    vertical-align: middle;
+}
+.nav-bar-option{
+  font-weight: bold;
+  text-wrap:normal;
+  font-size: 2vw;
+  vertical-align:middle;
+  height:var(--navBarSpace);
+  width:33.33%;
+  color:goldenrod;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-style: solid;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-color: darkgreen;
+  border-bottom-width: 0.5vw;
+    }
+.mobile-nav-col {
+    max-width: 0px;
+    padding: 0px;
+}
+
+.nav-bar-option:hover {
+    background-color: green;
+    color: gold;
+    text-decoration-line:none;
+    border-color: green;
+}
+
+.nav-bar-selected {
+    border-style: solid;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: goldenrod;
+}
+
+.nav-bar-selected:hover {
+  border-color: gold;
+}
+
+.nav-bar-text{
+    margin-bottom: 0px;
+    text-align: left;
+  }
+
+@media (max-width:767px) {
+    .nav-bar{
+      height: var(--navBarSpaceMobile);
+    }
+
+    .mobile-nav-col {
+      min-width: 20%;
+    }
+
+    .nav-bar-option{
+      
+      min-width: 60%;
+      height: 33.33%;
+    }
+
+    .nav-bar-text {
+      font-size: 2em;
+      max-height: 1.9em;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    .nav-bar-icon {
+      font-size:2em ;
+      align-items: baseline;
+    }
+}

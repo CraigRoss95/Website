@@ -1,4 +1,5 @@
-﻿h3 {
+﻿/* Also used for other.html */
+h3 {
     margin: auto;
     text-align: center;
 }
@@ -15,7 +16,6 @@
 .content-row-alt {
     background-color: burlywood;
 }
-
 
 .description {
     padding-left: 3em;
