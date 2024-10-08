@@ -64,7 +64,7 @@ function populateRowsViaJson(filename) {
     })
     fadeInDoc();
 }
-
+    
     function getHtmlTemplate(i) {
         if (i%2 == 0) {
             return "htmlTemplates/contentRow.html";

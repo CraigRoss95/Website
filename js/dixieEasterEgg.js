@@ -27,7 +27,6 @@ function findImage(imgs){
         }
     }
 }
-//onClick="clickDixie()" style="cursor:grab;width:100%;"
 function attemptInjection(img) {
     
     img.style = "cursor:grab;width:100%;"

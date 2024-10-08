@@ -26,8 +26,22 @@ class SpecialHeader extends HTMLElement {
             },
             dataType: "text"
         });
-
     }
+}
+function setupNavBarButtons()
+{
+    document.getElementById("nav-bar-other").addEventListener("click", fadeOutTo("/."));
+}
+
+function playFadeAnimation(_callback) {
+    $("#special-skeleton").fadeOut(fadeoutTime)
+    _callback()
+}
+function fadeOutTo(link) {
+    playFadeAnimation(function () {
+        sleep(fadeoutTime).then(() => {window.location.href = link;})
+    })
+    
 }
 
 customElements.define('special-header', SpecialHeader);
