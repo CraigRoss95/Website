@@ -1,5 +1,4 @@
-var fadeoutTime = 250;
-var fadeInTime = 500;
+var fadeInTime = 150;
 var fileName = "./" + location.href.split("/").slice(-1)[0]; 
 
 function getTitle() {

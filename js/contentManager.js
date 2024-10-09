@@ -5,6 +5,7 @@ class SpecialContent extends HTMLElement {
 
         var test = fileName;
         loadContentTo(fileName);
+        fadeInDoc();
     }   
 }
 
@@ -19,7 +20,6 @@ function populateRowsViaHtml (fileName){
         },
         dataType: "text"
     });
-    fadeInDoc();
 }
 function populateRowsViaJson(fileName) {
     var jsonData;
@@ -50,7 +50,6 @@ function populateRowsViaJson(fileName) {
             }
         }
     })
-    fadeInDoc();
 }
 //for switching contents of page
 function loadContentTo(link
@@ -116,7 +115,12 @@ function getHtmlInner(htmlfileName)
 }
 
 function fadeInDoc () {
-    $("#special-skeleton").fadeIn(500);
+    $("#special-skeleton").fadeIn(fadeInTime);
+    setTimeout(() => {
+        document.getElementById("special-content").style.display = "none";
+        document.getElementById("special-content").style.opacity = "100%";
+        $("#special-content").fadeIn(fadeInTime);
+    }, fadeInTime)
 
 }
 customElements.define('special-content', SpecialContent);

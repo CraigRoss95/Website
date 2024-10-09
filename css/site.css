@@ -4,11 +4,16 @@
 }
 
 body {
-  background-color: darkgreen !important;
+  background-color: darkgreen;
+  background-image: url(../Assets/background.jpg);
 }
 
 .container {
     padding-top: 0px;
+}
+
+.content {
+  background-color: darkgreen;
 }
 
 .strip-left-right-margins {
@@ -23,17 +28,8 @@ body {
     padding-top: var(--navBarSpace);
   }
 
-.content-wrapper-sidebar-left,
-.content-wrapper-sidebar-right{
-    background-image: url(../Assets/background.jpg);
-    background-size: 612px;
-    background-position: top left;
+.content-wrapper-sidebar{
     padding: 0px;
-}
-
-.content-wrapper-sidebar-right{
-  background-position: top right;
-
 }
 
 .icon-col {
