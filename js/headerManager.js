@@ -1,6 +1,7 @@
 
+var fileName;
 class SpecialHeader extends HTMLElement {
-
+    //for loading page first time or via link
     connectedCallback() { 
         var data;
         
@@ -8,19 +9,19 @@ class SpecialHeader extends HTMLElement {
             url: "/htmlTemplates/header.html",
             data: data,
             success: function (data) {
-                var fileName = location.href.split("/").slice(-1); 
+
                 document.getElementById('special-header').innerHTML= data;
-                switch(fileName[0])
+                switch(fileName)
                 {
 
-                    case "portfolio":
-                        document.getElementById("nav-bar-portfolio").className += " nav-bar-selected";
+                    case "./portfolio":
+                        updateNavBar("./portfolio");
                         break;
-                    case "other":
-                        document.getElementById("nav-bar-other").className += " nav-bar-selected";   
+                    case "./other":
+                        updateNavBar("./other");  
                         break; 
                     default:
-                        document.getElementById("nav-bar-about-me").className += " nav-bar-selected";
+                        updateNavBar("./")
                         break;
                 }
             },
@@ -28,20 +29,29 @@ class SpecialHeader extends HTMLElement {
         });
     }
 }
-function setupNavBarButtons()
-{
-    document.getElementById("nav-bar-other").addEventListener("click", fadeOutTo("/."));
-}
-
-function playFadeAnimation(_callback) {
-    $("#special-skeleton").fadeOut(fadeoutTime)
-    _callback()
-}
-function fadeOutTo(link) {
-    playFadeAnimation(function () {
-        sleep(fadeoutTime).then(() => {window.location.href = link;})
-    })
-    
+function updateNavBar (link){
+    var test = document.getElementById("nav-bar");
+    if(test != null) {
+        switch(link){
+            case "./other.html":
+            case "./other":
+                document.getElementById("nav-bar-other").classList.add("nav-bar-selected");
+                document.getElementById("nav-bar-portfolio").classList.remove("nav-bar-selected");
+                document.getElementById("nav-bar-about-me").classList.remove("nav-bar-selected");
+                break;
+            case "./portfolio.html":
+            case "./portfolio":
+                document.getElementById("nav-bar-portfolio").classList.add("nav-bar-selected");
+                document.getElementById("nav-bar-other").classList.remove("nav-bar-selected");
+                document.getElementById("nav-bar-about-me").classList.remove("nav-bar-selected");
+                break;
+            default:
+                document.getElementById("nav-bar-about-me").classList.add("nav-bar-selected");
+                document.getElementById("nav-bar-portfolio").classList.remove("nav-bar-selected");
+                document.getElementById("nav-bar-other").classList.remove("nav-bar-selected");
+                break;
+        }
+    }
 }
 
 customElements.define('special-header', SpecialHeader);
