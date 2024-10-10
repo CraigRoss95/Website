@@ -1,167 +1,48 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿:root {
+  --navBarSpace: 3.5vw;
+  --navBarSpaceMobile: 18vw;
+}
 
-/* Sticky footer styles
--------------------------------------------------- */
 body {
-  background-color: darkgreen !important;
+  background-color: darkgreen;
+  background-image: url(../Assets/background.jpg);
 }
 
-.border-top {
-  border-top: 0px;
-}
-
-.border-bottom {
-  border-bottom: 0px;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-.footer {
-    
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    background: none;
-}
 .container {
     padding-top: 0px;
-
 }
 
-.navbar-nav {
-    text-align: center;
-}
-.content-wrapper {
-    padding-left: 0px;
-    padding-right:0px;
-    padding-bottom:0px
-}
-.content-wrapper-sidebar-left,
-.content-wrapper-sidebar-right{
-    background-image: url(../Assets/background.jpg);
-    background-size: 612px;
-    background-position: top left;
-    padding: 0px;
-}
-.content-wrapper-sidebar-right{
-  background-position: top right;
-
+.content {
+  background-color: darkgreen;
 }
 
-.nav-bar {
-    background-color: darkgreen;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
-.nav-bar-options {
-    text-align: center;
-    height: fit-content;
-    width: 33%;
-    vertical-align: middle;
-}
-.nav-bar-option{
-  font-weight: bold;
-  text-wrap:normal;
-  font-size: 2vw;
-  vertical-align:middle;
-  height:100%;
-  width:33.33%;
-  color:goldenrod;
-  padding-left: 0px;
-  padding-right: 0px;
-  border-style: solid;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-color: darkgreen;
-    }
-  .mobile-nav-col
-  {
-    max-width: 0px;
-    padding: 0px;
-  }
-
-.nav-bar-option:hover {
-    background-color: green;
-    color: gold;
-    text-decoration-line:none;
-    border-color: green;
-}
-
-.nav-bar-selected {
-    border-style: solid;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-color: goldenrod;
-}
-.nav-bar-selected:hover {
-  border-color: gold;
-}
 .strip-left-right-margins {
   margin-left: 0px; 
   margin-right: 0px;
 }
-.contact-info {
-  text-align: center;
-  background-color: darkgreen;
-  color:goldenrod;
-  font-size: 2vw;
-}
-.contact-info-single {
-text-align: left;
-background-color: darkgreen;
-color:goldenrod;
-font-size: 2vw;
-width: 25%;
-}
-.contact-info-single:hover {
-color: gold;
-text-decoration-line:none;
-}
-.contact-spacer{
-  width: 0px;
-}
-  .nav-bar-text{
-    margin-bottom: 0px;
-    text-align: left;
+
+.content-wrapper {
+    padding-left: 0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-top: var(--navBarSpace);
   }
-  @media (max-width:767px)
-  {
-    html {
-      font-size: 16px;
-    }
-    .mobile-nav-col {
-      min-width: 20%;
-    }
-    .nav-bar-option{
-      
-      min-width: 60%;
-    }
-    .nav-bar-text {
-      font-size: 2em;
-    }
-    .navbar-icon {
-      font-size:2em ;
-    }
-    .nav-bar-selected {
-      border-bottom-width: 1vw;
+
+.content-wrapper-sidebar{
+    padding: 0px;
+}
+
+.icon-col {
+  display:inline-block;
+  align-content: center;
+}
+
+@media (max-width:767px)
+{
+  html {
+    font-size: 16px;
   }
-    .contact-info-single {
-      width: 66.66%;
-      font-size: 2em;
-    }
-    .contact-spacer {
-      width: 16.66%;
-    }
+  .content-wrapper { 
+  padding-top: var(--navBarSpaceMobile);
+  }
 }

@@ -1,6 +1,11 @@
-var intervalID = window.setInterval(myCallback, 100);
+var intervalID;
 var codeInjected = false;
 
+function setupEasterEgg(){
+    codeInjected = false;
+    intervalID = window.setInterval(myCallback, 100);
+    myCallback();
+}
 function myCallback() {
     if (codeInjected == false) {
         console.log("attepting injection")
@@ -27,7 +32,6 @@ function findImage(imgs){
         }
     }
 }
-//onClick="clickDixie()" style="cursor:grab;width:100%;"
 function attemptInjection(img) {
     
     img.style = "cursor:grab;width:100%;"

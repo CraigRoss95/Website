@@ -1,0 +1,37 @@
+.contact-info {
+    text-align: center;
+    background-color: darkgreen;
+    color:goldenrod;
+    font-size: 2vw;
+  }
+  
+.contact-info-single {
+    text-align: left;
+    background-color: darkgreen;
+    color:goldenrod;
+    font-size: 2vw;
+    width: 25%;
+}
+
+.contact-info-single:hover {
+    color: gold;
+    text-decoration-line:none;
+}
+
+.contact-spacer{
+    width: 0px;
+}
+
+@media (max-width:767px)
+  {
+    html {
+      font-size: 16px;
+    }
+    .contact-info-single {
+      width: 66.66%;
+      font-size: 2em;
+    }
+    .contact-spacer {
+      width: 16.66%;
+    }
+}
