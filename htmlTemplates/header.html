@@ -1,22 +1,19 @@
 <div id="nav-bar" class="row justify-content-center strip-left-right-margins nav-bar">
-    <div class="nav-bar-options col-8 row">
-        <div class="mobile-nav-col"></div>
+    <div class="nav-bar-options col-10 row">
         <button id="nav-bar-about-me" class="nav-bar-option row strip-left-right-margins flex-nowrap" onclick="switchContentTo('./')">
-                <div class="col-2">
-
-                </div>
-                <div class="col-2 icon-col">
+            <div class="col-2">
+                
+            </div>    
+            <div class="col-2 icon-col desktop-only-div">
                     <i class="fa fa-home nav-bar-icon" aria-hidden="true"></i>
                 </div>
                 <div class="col-8">
-                    <p class="nav-bar-text">About Me</p>
+                    <p class="nav-bar-text">About</p>
                 </div>
             </button>
-        <div class="mobile-nav-col"></div>
-        <div class="mobile-nav-col"></div>
         <button id="nav-bar-portfolio" class="nav-bar-option row strip-left-right-margins flex-nowrap" onclick="switchContentTo('./portfolio')">
-            <div class="col-2">
-
+            <div class="col-2 desktop-only-div">
+                
             </div>
             <div class="col-2 icon-col">
                 <i class="fa fa-folder nav-bar-icon" aria-hidden="true"></i>
@@ -26,11 +23,10 @@
             </div>
         </button>
 
-        <div class="mobile-nav-col"></div>
-        <div class="mobile-nav-col"></div>
+
 
         <button id="nav-bar-other" class="nav-bar-option row strip-left-right-margins flex-nowrap" onclick="switchContentTo('./other')">
-            <div class="col-2">
+            <div class="col-2 desktop-only-div">
 
             </div>
             <div class="col-2 icon-col">
@@ -40,6 +36,18 @@
                 <p class="nav-bar-text">Other</p>
             </div>
         </button>
+
+    <button id="nav-bar-other" class="nav-bar-option row strip-left-right-margins flex-nowrap comming-soon" onclick="underConstructionAlert()">
+        <div class="col-2">
+                
+        </div>
+        <div class="col-2 icon-col">
+            <i class="fa fa-rss nav-bar-icon" aria-hidden="true"></i>
+        </div>
+        <div class="col-8">
+            <p class="nav-bar-text">Blog</p>
+        </div>
+    </button>
     <div class="mobile-nav-col"></div>
     </div>
 </div>

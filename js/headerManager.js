@@ -54,4 +54,7 @@ function updateNavBar (link){
     }
 }
 
+function underConstructionAlert() {
+    alert("Feature comming soon");
+}
 customElements.define('special-header', SpecialHeader);
