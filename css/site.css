@@ -1,4 +1,7 @@
-﻿:root {
+﻿html {
+  font-size:calc(12px + 0.5vw);;
+}
+:root {
   --navBarSpace: 3.5vw;
   --navBarSpaceMobile: 18vw;
 }
