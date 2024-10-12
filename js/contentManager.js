@@ -10,6 +10,9 @@ class SpecialContent extends HTMLElement {
     }   
 }
 
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 function setupTemplates() {
     $.ajax({
         url: "htmlTemplates/contentRow.html",
@@ -30,6 +33,7 @@ function setupTemplates() {
         dataType: "text"
     });
 }
+
 function populateRowsViaHtml (fileName){
     contentFileDir = fileName;
     var data;
@@ -42,6 +46,7 @@ function populateRowsViaHtml (fileName){
         dataType: "text"
     });
 }
+
 function populateRowsViaJson(fileName) {
     var jsonData;
     html = "";
@@ -64,10 +69,20 @@ function populateRowsViaJson(fileName) {
         }
     })
 }
+
 //for switching contents of page
 function loadContentTo(link
 ) { 
-    switch(link)
+    var delayTime = 200;
+    if (document.documentElement.scrollTop < 10){
+        delayTime = 0
+    }
+    fileName = link;
+    updateNavBar(link);
+    fudgeUrl(link);
+    scrollToTop();
+    setTimeout(() => { 
+        switch(link)
     {
         case "./other.html":
         case "./other":
@@ -86,9 +101,8 @@ function loadContentTo(link
             populateRowsViaJson("htmlContent/indexContent.json");
             break;
     }
-    fileName = link;
-    updateNavBar(link);
-    fudgeUrl(link);
+    }, delayTime);
+    
 }
 
 function fudgeUrl(link){
@@ -101,6 +115,9 @@ function fudgeUrl(link){
 function switchContentTo(link){
     if (link != fileName) {
         loadContentTo(link);
+    }
+    else{
+        scrollToTop();
     }
 }
 
