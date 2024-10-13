@@ -4,6 +4,8 @@ var bloggerPostsString = "https://www.googleapis.com/blogger/v3/blogs/6475475122
 var currentPageindex = 0;
 var blogIds = []
 
+let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
 //only get ids from this query
 function getPostIds() {
   if (blogIds[0] != null)
@@ -57,14 +59,17 @@ async function loadPostAtIndex(index,post)
       }
       blogText = xmlContentDom.body.innerText
 
-
+      var date = new Date(post.published)
+      var dateString = daysOfTheWeek[date.getDay()]+ ": " + date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
 
       rowDom.getElementById("title").innerHTML = post.title;
       rowDom.getElementById("image").src = imgSrc;
-      rowDom.getElementById("text").remove
+      rowDom.getElementById("text").remove;
       rowDom.getElementById("text").innerText = blogText;
-      
-      document.getElementById("content-row-" + index).innerHTML = rowDom.body.innerHTML
+      rowDom.getElementById("post-link").innerText = "View on Blogger";
+      rowDom.getElementById("post-link").href = post.url;
+      rowDom.getElementById("post-date").innerText = dateString;
+      document.getElementById("content-row-" + index).innerHTML = rowDom.body.innerHTML;
     }
 }
 function loadBlog() {

@@ -164,7 +164,9 @@ function createEmptyContentBoxes(){
         currentTemplate = getHtmlTemplate(i);
         var contentRow = new DOMParser().parseFromString(currentTemplate, "text/html");
         contentRow.getElementById("no-id-content-row").id = "content-row-" + i;
-        html = html + contentRow.body.innerHTML
+        var blogDiscriptionRow = contentRow.getElementById("blog-info")
+        blogDiscriptionRow.style.visibility = "visible"
+        html = html + contentRow.body.outerHTML
     }
     document.getElementById('special-content').innerHTML= html;
   }

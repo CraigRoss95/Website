@@ -12,6 +12,7 @@ h3 {
     margin-right: 0px;
     padding-left: 5%;
     padding-right: 5%;
+    height: fit-content;
 }
 .content-row-alt {
     background-color: burlywood;
