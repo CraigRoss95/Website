@@ -1,65 +1,47 @@
-let feed = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI "
+let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
+var bloggerKeyString = "?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
+var bloggerPostsString = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
 var currentPageindex = 0;
+var blogIds = []
 
-function getContentViaXml() {
-  var jsonBlog;
+//only get ids from this query
+function getPostIds() {
+  if (blogIds[0] != null)
+    {
+      return blogIds;
+    }
+    url = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/" + bloggerKeyString + "&requestBody=false"
+    blogIds = [];
   $.ajax({
     type: "GET",
     async: false,
-    url: feed,
-
+    url: url,
     success: function(xml) {
-      jsonBlog = xml.items
+      for (var i = 0; i < xml.items.length; i++){
+        blogIds.push(xml.items[i].id)
+      } 
+    }
+  })
+  return blogIds;
+}
+
+function setPostViaId(index,id) {
+  $.ajax({
+    type: "GET",
+    async: true,
+    url: bloggerPostsString + id + bloggerKeyString,
+    success: function(postResponse) {
+      loadPostAtIndex(index,postResponse)
     }
     });
-    return jsonBlog;
 }
 
-function getFirstTag(text, startTag, endTag) {
-  indexStart = text.indexOf(startTag)
-  indexEnd= text.indexOf(endTag)+ endTag.length;
-  return text.substring(indexStart,indexEnd);
-}
-
-function containsTagSubstring(text, startTag ,endTag){
-  if (text.includes(startTag) && text.includes(endTag))
-    {
-      indexStart = text.indexOf(startTag)
-      indexEnd= text.indexOf(endTag)+ endTag.length
-      if (indexEnd> indexStart)
-      {
-        return true
-      }
-    }
-    return false
-  }
-
-function stripTag(text, startTag,endTag) {
-  text = text.replace(startTag, "")
-  text = text.replace(endTag, "")
-  return text
-}
-function getBetweenPTags(text)
+async function loadPostAtIndex(index,post)
 {
-  var contentsArray = new Array
-  var currentString = ""
-  while(containsTagSubstring(text, "<p>", "</p>"))
-  {
-    currentString = getFirstTag(text, "<p>", "</p>")
-    contentsArray.push(stripTag(currentString, "<p>", "</p>"))
-    text = text.replace(currentString,"")
-  }
-  return contentsArray;
-}
-
-function loadBlog(page) {
-  var jsonBlog;
-  jsonBlog = getContentViaXml();
-  for (var i = 0; i < postsPerPage; i++){
-    if (jsonBlog[i] != null)
+  if (getPostIds()[index] != null)
     {
-      var rowDom = new DOMParser().parseFromString(document.getElementById("content-row-" + i).innerHTML, "text/html")
-      var xmlContentDom = new DOMParser().parseFromString(jsonBlog[i].content, "text/html")
+      var rowDom = new DOMParser().parseFromString(document.getElementById("content-row-" + index).innerHTML, "text/html")
+      var xmlContentDom = new DOMParser().parseFromString(post.content, "text/html")
 
       var imgSrc
       if (xmlContentDom.images[0] != null)
@@ -73,13 +55,24 @@ function loadBlog(page) {
       else {
         imgSrc = "./Assets/Feed-icon.svg.png"
       }
+      blogText = xmlContentDom.body.innerText
 
-      rowDom.getElementById("title").innerHTML = jsonBlog[i].title;
+
+
+      rowDom.getElementById("title").innerHTML = post.title;
       rowDom.getElementById("image").src = imgSrc;
-      rowDom.getElementById("text").innerHTML = xmlContentDom.body.innerHTML;
-
-      document.getElementById("content-row-" + i).innerHTML = rowDom.body.innerHTML
+      rowDom.getElementById("text").remove
+      rowDom.getElementById("text").innerText = blogText;
+      
+      document.getElementById("content-row-" + index).innerHTML = rowDom.body.innerHTML
     }
+}
+function loadBlog() {
+  var postIds = getPostIds()
+  for (var i = 0; i < postsPerPage; i++){
+    if(postIds[i]!=null){
+        setPostViaId(i,postIds[i])
+      }
   }
 }
 
