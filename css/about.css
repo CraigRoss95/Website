@@ -24,6 +24,9 @@ h3 {
     padding-top: 2em;
 }
 
+#special-header {
+    background-color: burlywood;
+}
 
 @media (max-width:767px)
 {

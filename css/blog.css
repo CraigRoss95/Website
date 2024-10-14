@@ -1,0 +1,12 @@
+#back-button,
+#forward-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar-mid-section{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}

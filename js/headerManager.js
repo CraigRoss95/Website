@@ -8,7 +8,7 @@ class SpecialHeader extends HTMLElement {
 function loadHeader(){
     switch(fileName) {
         case "./blog":
-            loadHeaderFromURL("./htmlTemplates/blogNav.html")
+            loadHeaderFromURL("./htmlTemplates/headers/blogNav.html")
             break;
         default:
             removeHeader();
