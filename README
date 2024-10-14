@@ -1,0 +1,28 @@
+TODO fill out readme
+
+
+Intro:
+
+After using Razor at a previous employer, and after struggling to find a cheap way to host an using ASP.Net, I decided to try and recreate some of those features with Java Script. I have only had Back End and Full Stack positions so consider this my first steps into Front End Development.
+
+Content management:
+
+Every page starts by loading the skeleton (skeleton.html) that contains the basic parts of the site including all of the tags that hold the other parts. The Nav Bar and Contact Bar also have their own html files that are loaded in with everything else. The way the content is handled is different depending on the scenario. I wanted a refresher on JSON so the About and Contact pages are served off of JSON files that are fetched in my the content manager. Since the Portfolio is so different from the other parts of the site I need to load that up with another layer of HTML. The content for the blog is served using an RSS feed. Most content on the site that is displayed in rows uses an alternating template for every other post, this was done to make it easier to read and tell what images and text belong tow which row.
+
+
+Nav and Contact bars:
+At first glance the Nav Bar doesn't look like much, but don't let appearances fool you. I put a lot of work into finding ways to change pages seamlessly. Instead of changing URLs like sites normally do, the Nav-Bar loads the page's contents directly into the active html site. It may appear that the website has changed but that is just the content in the special-content field changing. I took the time to ensure that it still feels like the page has changed by changing the Nav Bar CSS and changing the url and page info on clicking over to another tab. This can be proven by checking the debug console, the page that is loaded should still be the page that shows up there.
+
+
+TODO Mobile support
+
+TODO: Portfolio explination (update portfolio code first)
+
+TODO: About and Other (Update those secitons first) 
+
+TODO: Blog exlplenation (you guessed it, finish blog)
+
+credits:
+
+Font Awesom Icons for Contact and Nav Bars:
+https://fontawesome.com/v4/icons/

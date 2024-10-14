@@ -10,6 +10,9 @@ function getTitle() {
         case "./portfolio":
             title = "Craigs Website: Portfolio"
             break;
+        case "./blog":
+            title = "Craigs Website: Blog"
+            break;
 
         default:
             title = "Craigs Website:"

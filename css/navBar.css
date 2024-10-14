@@ -1,6 +1,6 @@
 :root {
     --navBarSpace: 3.5vw;
-    --navBarSpaceMobile: 18vw;
+    --navBarSpaceMobile: 14vw;
   }
   .nav-bar {
     background-color: darkgreen;
@@ -12,8 +12,12 @@
 .nav-bar-options {
     text-align: center;
     height: 100%;
-    width: 33%;
     vertical-align: middle;
+}
+.desktop-only-div{
+  width: 16.66666%;
+  padding-left: 0%;
+  padding-right: 0%;
 }
 .nav-bar-option{
   font-weight: bold;
@@ -21,7 +25,7 @@
   font-size: 2vw;
   vertical-align:middle;
   height:var(--navBarSpace);
-  width:33.33%;
+  width:25%;
   color:goldenrod;
   padding-left: 0px;
   padding-right: 0px;
@@ -72,9 +76,8 @@
     }
 
     .nav-bar-option{
-      
-      min-width: 60%;
-      height: 33.33%;
+      width: 50%;
+      height: 50%;
     }
 
     .nav-bar-text {
@@ -87,5 +90,10 @@
     .nav-bar-icon {
       font-size:2em ;
       align-items: baseline;
+    }
+    .desktop-only-div{
+      width: 10%;
+      padding-left: 0%;
+      padding-right: 0%;
     }
 }

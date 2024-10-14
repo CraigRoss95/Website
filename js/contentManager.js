@@ -1,12 +1,37 @@
-
+let postsPerPage = 5;
+var htmlContentTemplate = ""
+var htmlContentTemplateAlt = ""
 class SpecialContent extends HTMLElement {
 
     connectedCallback() { 
-
-        var test = fileName;
+        setupTemplates();
         loadContentTo(fileName);
         fadeInDoc();
     }   
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function setupTemplates() {
+    $.ajax({
+        url: "htmlTemplates/contentRow.html",
+        data: htmlContentTemplate,
+        async: false,
+        success: function (htmlData) {
+            htmlContentTemplate = htmlData;
+        },
+        dataType: "text"
+    });
+    $.ajax({
+        url: "htmlTemplates/contentRowAlt.html",
+        data: htmlContentTemplateAlt,
+        async: false,
+        success: function (htmlData) {
+            htmlContentTemplateAlt = htmlData
+        },
+        dataType: "text"
+    });
 }
 
 function populateRowsViaHtml (fileName){
@@ -21,9 +46,9 @@ function populateRowsViaHtml (fileName){
         dataType: "text"
     });
 }
+
 function populateRowsViaJson(fileName) {
     var jsonData;
-    var htmlData;
     html = "";
     $.ajax ({
         url: fileName,
@@ -31,48 +56,53 @@ function populateRowsViaJson(fileName) {
         success : function (jsonData)
         {
             for(i = 0; i < jsonData.content.length; i++)
-            {
-                //Get template
-                $.ajax({
-                    url: getHtmlTemplate(i),
-                    data: htmlData,
-                    async: false,
-                    success: function (htmlData) {
-                        newData = new DOMParser().parseFromString(htmlData, "text/html");
-                        newData.getElementById("title").innerHTML = jsonData.content[i].title;
-                        newData.getElementById("image").src = jsonData.content[i].image;
-                        newData.getElementById("text").innerHTML = getHtmlInner(jsonData.content[i].text);
-                        html = html + newData.body.innerHTML;
-                    },
-                    dataType: "text"
-                });
-                document.getElementById('special-content').innerHTML= html;
+            {   
+                var templateHTML = getHtmlTemplate(i);
+                var contentRow = new DOMParser().parseFromString(templateHTML, "text/html");
+                contentRow.getElementById("no-id-content-row").id = "content-row-" + i;
+                contentRow.getElementById("title").innerHTML = jsonData.content[i].title;
+                contentRow.getElementById("image").src = jsonData.content[i].image;
+                contentRow.getElementById("post-text").innerHTML = getHtmlInner(jsonData.content[i].text);
+                html = html + contentRow.body.innerHTML;
             }
+            document.getElementById('special-content').innerHTML= html;
         }
     })
 }
+
 //for switching contents of page
 function loadContentTo(link
 ) { 
-    switch(link)
+    var delayTime = 200;
+    if (document.documentElement.scrollTop < 10){
+        delayTime = 0
+    }
+    fileName = link;
+    updateNavBar(link);
+    fudgeUrl(link);
+    scrollToTop();
+    setTimeout(() => { 
+        switch(link)
     {
         case "./other.html":
         case "./other":
             $.when(populateRowsViaJson("htmlContent/otherContent.json"))
             .then(setupEasterEgg());
             break;
-        
         case "./portfolio.html":
         case "./portfolio":
             populateRowsViaHtml("htmlContent/portfolioContent.html");
+            break;
+        case "./blog.html":
+        case "./blog":
+            generateBlog();
             break;
         default:
             populateRowsViaJson("htmlContent/indexContent.json");
             break;
     }
-    fileName = link;
-    updateNavBar(link);
-    fudgeUrl(link);
+    }, delayTime);
+    
 }
 
 function fudgeUrl(link){
@@ -86,14 +116,17 @@ function switchContentTo(link){
     if (link != fileName) {
         loadContentTo(link);
     }
+    else{
+        scrollToTop();
+    }
 }
 
 function getHtmlTemplate(i) {
     if (i%2 == 0) {
-        return "htmlTemplates/contentRow.html";
+        return htmlContentTemplate;
     }
     else {
-        return "htmlTemplates/contentRowAlt.html"
+        return htmlContentTemplateAlt;
     }
 
 }
@@ -121,6 +154,26 @@ function fadeInDoc () {
         document.getElementById("special-content").style.opacity = "100%";
         $("#special-content").fadeIn(fadeInTime);
     }, fadeInTime)
+
+}
+
+function createEmptyContentBoxes(){
+    var html = ""
+    var currentTemplate = ""
+    for(var i = 0; i<postsPerPage; i++){
+        currentTemplate = getHtmlTemplate(i);
+        var contentRow = new DOMParser().parseFromString(currentTemplate, "text/html");
+        contentRow.getElementById("no-id-content-row").id = "content-row-" + i;
+        var blogDiscriptionRow = contentRow.getElementById("blog-info")
+        blogDiscriptionRow.style.visibility = "visible"
+        html = html + contentRow.body.outerHTML
+    }
+    document.getElementById('special-content').innerHTML= html;
+  }
+
+function generateBlog() {
+    createEmptyContentBoxes();
+    loadBlog(0);
 
 }
 customElements.define('special-content', SpecialContent);
