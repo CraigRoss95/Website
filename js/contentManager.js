@@ -62,7 +62,7 @@ function populateRowsViaJson(fileName) {
                 contentRow.getElementById("no-id-content-row").id = "content-row-" + i;
                 contentRow.getElementById("title").innerHTML = jsonData.content[i].title;
                 contentRow.getElementById("image").src = jsonData.content[i].image;
-                contentRow.getElementById("text").innerHTML = getHtmlInner(jsonData.content[i].text);
+                contentRow.getElementById("post-text").innerHTML = getHtmlInner(jsonData.content[i].text);
                 html = html + contentRow.body.innerHTML;
             }
             document.getElementById('special-content').innerHTML= html;
@@ -173,6 +173,9 @@ function createEmptyContentBoxes(){
 
 function generateBlog() {
     createEmptyContentBoxes();
+    loadBlog(0);
+    loadBlog(0);
+    loadBlog(0);
     loadBlog(0);
 
 }

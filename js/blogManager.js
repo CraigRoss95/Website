@@ -57,21 +57,28 @@ async function loadPostAtIndex(index,post)
       else {
         imgSrc = "./Assets/Feed-icon.svg.png"
       }
-      blogText = xmlContentDom.body.innerText
+      var blogText = xmlContentDom.body.innerHTML
 
       var date = new Date(post.published)
       var dateString = daysOfTheWeek[date.getDay()]+ ": " + date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
 
       rowDom.getElementById("title").innerHTML = post.title;
       rowDom.getElementById("image").src = imgSrc;
-      rowDom.getElementById("text").remove;
-      rowDom.getElementById("text").innerText = blogText;
+      //remove innerHTML
+
+      rowDom.getElementById("post-text").innerHTML = blogText;
       rowDom.getElementById("post-link").innerText = "View on Blogger";
       rowDom.getElementById("post-link").href = post.url;
       rowDom.getElementById("post-date").innerText = dateString;
       document.getElementById("content-row-" + index).innerHTML = rowDom.body.innerHTML;
     }
 }
+
+function destroyAllChildren(element)
+{
+  element.children = [];
+}
+
 function loadBlog() {
   var postIds = getPostIds()
   for (var i = 0; i < postsPerPage; i++){
