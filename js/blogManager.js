@@ -2,7 +2,8 @@ let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/64754751220991325
 var bloggerKeyString = "?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
 var bloggerPostsString = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
 var currentPageindex = 0;
-var blogIds = ["5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810"]
+var blogIds = []
+//var blogIds = ["5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810"]
 
 let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 

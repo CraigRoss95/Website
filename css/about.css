@@ -23,3 +23,15 @@ h3 {
     padding-right: 3em;
     padding-top: 2em;
 }
+
+
+@media (max-width:767px)
+{
+    .content-image-col{
+        order: 1;
+    }
+
+    .content-text-col{
+        order:2
+    }
+}
