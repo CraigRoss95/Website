@@ -2,7 +2,7 @@ let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/64754751220991325
 var bloggerKeyString = "?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
 var bloggerPostsString = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
 var currentPageindex = 0;
-var blogIds = []
+var blogIds = ["5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810"]
 
 let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
@@ -79,12 +79,13 @@ function destroyAllChildren(element)
   element.children = [];
 }
 
-function loadBlog() {
+function loadBlog(pageIndex) {
+  currentPageindex = pageIndex;
   var postIds = getPostIds()
   for (var i = 0; i < postsPerPage; i++){
-    if(postIds[i]!=null){
+    if(postIds[currentPageindex+ i]!=null){
         document.getElementById("content-row-" + i).style.visibility = "visible"
-        setPostViaId(i,postIds[i])
+        setPostViaId(i,postIds[currentPageindex+i])
       }
       else {
         document.getElementById("content-row-" + i).style.visibility  = "hidden"

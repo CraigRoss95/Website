@@ -82,6 +82,7 @@ function loadContentTo(link
     fudgeUrl(link);
     scrollToTop();
     setTimeout(() => { 
+        loadHeader();
         switch(link)
     {
         case "./other.html":
@@ -151,8 +152,11 @@ function fadeInDoc () {
     $("#special-skeleton").fadeIn(fadeInTime);
     setTimeout(() => {
         document.getElementById("special-content").style.display = "none";
+        document.getElementById("special-header").style.display = "none";
         document.getElementById("special-content").style.opacity = "100%";
+        document.getElementById("special-header").style.opacity = "100%";
         $("#special-content").fadeIn(fadeInTime);
+        $("#special-header").fadeIn(fadeInTime);
     }, fadeInTime)
 
 }
