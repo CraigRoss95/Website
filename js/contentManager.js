@@ -174,9 +174,6 @@ function createEmptyContentBoxes(){
 function generateBlog() {
     createEmptyContentBoxes();
     loadBlog(0);
-    loadBlog(0);
-    loadBlog(0);
-    loadBlog(0);
 
 }
 customElements.define('special-content', SpecialContent);

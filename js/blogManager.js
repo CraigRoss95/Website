@@ -83,7 +83,11 @@ function loadBlog() {
   var postIds = getPostIds()
   for (var i = 0; i < postsPerPage; i++){
     if(postIds[i]!=null){
+        document.getElementById("content-row-" + i).style.visibility = "visible"
         setPostViaId(i,postIds[i])
+      }
+      else {
+        document.getElementById("content-row-" + i).style.visibility  = "hidden"
       }
   }
 }
