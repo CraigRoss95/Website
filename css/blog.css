@@ -4,9 +4,21 @@
     align-items: center;
     justify-content: center;
 }
-
+.blog-nav-button {
+    display: inline-block;
+    float: none;
+    min-width: 10%
+}
 .nav-bar-mid-section{
-    justify-content: space-around;
     display: flex;
-    align-items: center;
+    height: fit-content;
+    justify-content: space-around;
+}
+
+.grey-out {
+    background-color: red;
+}
+
+.blog-nav-selected {
+    background-color:  greenyellow;
 }

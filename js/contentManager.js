@@ -1,4 +1,4 @@
-let postsPerPage = 5;
+let postsPerPage = 3;
 var htmlContentTemplate = ""
 var htmlContentTemplateAlt = ""
 class SpecialContent extends HTMLElement {
@@ -81,8 +81,8 @@ function loadContentTo(link
     updateNavBar(link);
     fudgeUrl(link);
     scrollToTop();
+    loadHeader();
     setTimeout(() => { 
-        loadHeader();
         switch(link)
     {
         case "./other.html":
@@ -103,6 +103,7 @@ function loadContentTo(link
             break;
     }
     }, delayTime);
+    
     
 }
 

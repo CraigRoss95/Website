@@ -1,10 +1,7 @@
 
 class SpecialHeader extends HTMLElement {
-    connectedCallback() {
-       loadHeader(); 
-    }
 }
-
+var data
 function loadHeader(){
     switch(fileName) {
         case "./blog":
@@ -15,16 +12,16 @@ function loadHeader(){
             break;
     }
 }
-function loadHeaderFromURL(url)
+function loadHeaderFromURL(url,callback)
 {
     var data;
         
         $.ajax({
             url: url,
             data: data,
+            async: false,
             success: function (data) {
-                document.getElementById('special-header').innerHTML= data;
-                
+                document.getElementById('special-header').innerHTML = data;
             },
             dataType: "text"
         });
