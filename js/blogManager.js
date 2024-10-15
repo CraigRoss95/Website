@@ -1,48 +1,49 @@
-let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
-var bloggerKeyString = "?key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
-var bloggerPostsString = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
+let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts?&fields=items(id)&key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
+
+let getPostURL = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
+let getPostFilters = "?fields=content,title,published,url&key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
 var currentPageindex;
 var blogIds = []
-blogIds = ["5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810","5785063684953752810"
-]
+
 
 let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 //only get ids from this query
-function getPostIds() {
-  if (blogIds[0] != null)
-    {
-      return blogIds;
-    }
-    url = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/" + bloggerKeyString + "&requestBody=false"
-    blogIds = [];
-  $.ajax({
-    type: "GET",
-    async: false,
-    url: url,
-    success: function(xml) {
-      for (var i = 0; i < xml.items.length; i++){
-        blogIds.push(xml.items[i].id)
-      } 
-    }
-  })
-  return blogIds;
-}
+  function getPostIds() {
+    if (blogIds[0] != null)
+      {
+        return;
+      }
+      url = metaDataUrl
+      blogIds = [];
+      $.ajax({
+        type: "GET",
+        async: false,
+        url: url,
+        success: function(xml) {
+          for (var i = 0; i < xml.items.length; i++){
+            blogIds.push(xml.items[i].id)
+            } 
+            
+          }
+        })
+      }
 
 function setPostViaId(index,id) {
   $.ajax({
     type: "GET",
     async: true,
-    url: bloggerPostsString + id + bloggerKeyString,
+    url: getPostURL + id + getPostFilters,
     success: function(postResponse) {
       loadPostAtIndex(index,postResponse)
     }
     });
 }
 
-async function loadPostAtIndex(index,post)
+function loadPostAtIndex(index,post)
 {
-  if (getPostIds()[index] != null)
+  
+  if (blogIds[index] != null)
     {
       var rowDom = new DOMParser().parseFromString(document.getElementById("content-row-" + index).innerHTML, "text/html")
       var xmlContentDom = new DOMParser().parseFromString(post.content, "text/html")
@@ -76,13 +77,13 @@ async function loadPostAtIndex(index,post)
     }
 }
 
-function loadBlog(pageIndex) {
+async function loadBlog(pageIndex) {
+  await getPostIds()
   currentPageindex = pageIndex;
-  var postIds = getPostIds();
   for (var i = 0; i < postsPerPage; i++){
-    if(postIds[(currentPageindex * postsPerPage)+ i]!=null){
+    if(blogIds[(currentPageindex * postsPerPage)+ i]!=null){
         document.getElementById("content-row-" + i).style.display = "flex"
-        setPostViaId(i,postIds[(currentPageindex * postsPerPage)+i])
+        setPostViaId(i,blogIds[(currentPageindex * postsPerPage)+i])
       }
       else {
         document.getElementById("content-row-" + i).style.display = "none"
@@ -96,11 +97,10 @@ function loadBlog(pageIndex) {
 }
 
 function createButtons(){
-  postIds = getPostIds();
   
   var parent = document.getElementById("nav-bar-mid-section")
 
-  for(var i = 0; i < postIds.length/postsPerPage ; i++) {
+  for(var i = 0; i < blogIds.length/postsPerPage ; i++) {
     var buttonElement = document.createElement("button");
     buttonElement.classList.add("blog-nav-button");
     buttonElement.id = "blog-nav-button-" + i;
