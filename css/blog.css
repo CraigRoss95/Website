@@ -10,11 +10,11 @@
 }
 .blog-nav-button {
     background-color: green;
-    border: solid darkgreen;
+    border: solid green;
     display: block;
     float: none;
     min-width: 10%;
-    border-color: darkgreen;
+    border-color: green;
     color: goldenrod;
     font-size:xx-large;
     font-weight: bold;
@@ -49,7 +49,7 @@
 #header-button-forward{
     background-color: green;
     color: goldenrod;
-    border-color: green;
+    border:solid green;
     font-size:xx-large;
     font-weight: bold;
 }
