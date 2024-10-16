@@ -40,6 +40,7 @@ function populateRowsViaHtml (fileName){
     $.ajax({
         url: contentFileDir,
         data: data,
+        async: false,
         success: function (data) {
             document.getElementById('special-content').innerHTML= data; 
         },
@@ -53,6 +54,7 @@ function populateRowsViaJson(fileName) {
     $.ajax ({
         url: fileName,
         data: jsonData,
+        async: false,
         success : function (jsonData)
         {
             for(i = 0; i < jsonData.content.length; i++)
@@ -83,7 +85,16 @@ function loadContentTo(link
     scrollToTop();
     loadHeader();
     setTimeout(() => { 
-        switch(link)
+        $.when(linkSwitchStatment(link))
+        .then(applyClickScriptToAllImages())
+    }, delayTime);
+    
+    
+}
+
+function linkSwitchStatment(link)
+{
+    switch(link)
     {
         case "./other.html":
         case "./other":
@@ -102,9 +113,6 @@ function loadContentTo(link
             populateRowsViaJson("htmlContent/indexContent.json");
             break;
     }
-    }, delayTime);
-    
-    
 }
 
 function fudgeUrl(link){
@@ -162,7 +170,7 @@ function fadeInDoc () {
 
 }
 
-function createEmptyContentBoxes(){
+function createEmptyContentBoxes() {
     var html = ""
     var currentTemplate = ""
     for(var i = 0; i<postsPerPage; i++){
@@ -176,10 +184,70 @@ function createEmptyContentBoxes(){
     document.getElementById('special-content').innerHTML= html;
   }
 
-function generateBlog() {
+ function generateBlog() {
     createEmptyContentBoxes();
     loadBlog(0);
+    applyClickScriptToAllImages();
 
+}
+
+function applyClickScriptToAllImages()
+{
+    var imageElements = getFilteredImages()
+    for(var i = 0; i < imageElements.length; i++) {
+        if (imageElements[i].classList.contains("clickable-image") == false) {
+            imageElements[i].classList.add("clickable-image")
+            //see changeBlogPage for how to do this propperly
+            imageElements[i].onclick = (function(event) {zoomImage(event)})
+        }
+    }
+}
+
+function getFilteredImages(){
+    var allElements = document.getElementsByTagName("img");
+    var responseElements = [];
+    let imageIdBlackList = ["photo-viewer-image"]
+    let imageSrcList = "Dixie.png"
+    for(var i = 0; i < allElements.length; i++){
+        if(
+            
+            ((allElements[i].src == "") == false
+            && allElements[i].src.includes("Dixie.png") == false)
+
+            && ((allElements[i].id == "") == false
+            ||imageIdBlackList.includes(allElements[i].id) == false)
+        
+            && isOnBlackListedClassList(allElements[i])== false) {
+            responseElements.push(allElements[i])
+        }
+    }
+    return responseElements
+}
+
+function isOnBlackListedClassList(element) {
+    let imageClassBlackList = ["clickable-icon-image"]
+
+    if (element.classList.length == 0) {
+        return false
+    }
+
+    for (var i = 0; i < imageClassBlackList.length; i++){
+        if(element.classList.contains(imageClassBlackList[i])) {
+            return true
+        }
+       
+    }
+    return false
+}
+
+function zoomImage(imageElement) {
+    document.getElementById("photo-viewer-image").src = imageElement.target.src;
+    document.getElementById("photo-viewer-background").style.visibility = "visible";
+}
+
+function closeImage() {
+
+    document.getElementById("photo-viewer-background").style.visibility = "hidden";
 }
 customElements.define('special-content', SpecialContent);
 

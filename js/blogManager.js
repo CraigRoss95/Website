@@ -32,7 +32,7 @@ let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday
 function setPostViaId(index,id) {
   $.ajax({
     type: "GET",
-    async: true,
+    async: false,
     url: getPostURL + id + getPostFilters,
     success: function(postResponse) {
       loadPostAtIndex(index,postResponse)
@@ -89,6 +89,7 @@ async function loadBlog(pageIndex) {
         document.getElementById("content-row-" + i).style.display = "none"
       }
   }
+  applyClickScriptToAllImages()
 
   if (document.getElementById("blog-nav-button-0") == null){
     createButtons()
