@@ -1,0 +1,55 @@
+#back-button,
+#forward-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-nav-container{
+    background-color: darkgreen;
+}
+.blog-nav-button {
+    background-color: green;
+    border: solid green;
+    display: block;
+    float: none;
+    min-width: 10%;
+    border-color: green;
+    color: goldenrod;
+    font-size:xx-large;
+    font-weight: bold;
+}
+
+.nav-bar-mid-section{
+    display: flex;
+    height: fit-content;
+    justify-content: space-around;
+}
+
+.grey-out{
+    background-color: black !important;
+    border-color: black !important;
+    color: white;
+
+}
+
+.blog-nav-selected {
+    text-decoration: underline;
+    border-color: goldenrod;
+}
+#back-button button:hover,
+#forward-button button:hover , 
+.blog-nav-button:hover{
+    background-color: goldenrod;
+    border-color: goldenrod;
+    color: black;
+    
+}
+#header-button-back,
+#header-button-forward{
+    background-color: green;
+    color: goldenrod;
+    border:solid green;
+    font-size:xx-large;
+    font-weight: bold;
+}
