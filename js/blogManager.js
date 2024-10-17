@@ -66,6 +66,8 @@ function loadAllPosts (){
   for (var i = 0; i < currentPageJson.length; i++ ) {
     loadPostAtIndex(i,currentPageJson[i])
   }
+  
+  applyClickScriptToAllImages();
 }
 
 function loadPostAtIndex(index,post)
@@ -95,8 +97,8 @@ function loadPostAtIndex(index,post)
 
       rowDom.getElementById("title").innerHTML = post.title;
       rowDom.getElementById("image").src = imgSrc;
+      rowDom.getElementById("image").classList.remove("clickable-image")
       //remove innerHTML
-
       rowDom.getElementById("post-text").innerHTML = blogText;
       rowDom.getElementById("post-link").innerText = "View on Blogger";
       rowDom.getElementById("post-link").href = post.url;
@@ -116,8 +118,8 @@ async function loadBlog(pageIndex) {
         document.getElementById("content-row-" + i).style.display = "none"
       }
   }
-  loadAllPosts()
-  applyClickScriptToAllImages()
+  $.when(loadAllPosts())
+    .then(applyClickScriptToAllImages())
 
   if (document.getElementById("blog-nav-button-0") == null){
     createButtons()

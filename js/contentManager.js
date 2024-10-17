@@ -197,7 +197,6 @@ function applyClickScriptToAllImages()
     for(var i = 0; i < imageElements.length; i++) {
         if (imageElements[i].classList.contains("clickable-image") == false) {
             imageElements[i].classList.add("clickable-image")
-            //see changeBlogPage for how to do this propperly
             imageElements[i].onclick = (function(event) {zoomImage(event)})
         }
     }
