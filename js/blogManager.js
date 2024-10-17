@@ -1,7 +1,6 @@
-let metaDataUrl = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts?&fields=items(id)&key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
+let metaDataUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/ids"
+let postUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/post?id="
 
-let getPostURL = "https://www.googleapis.com/blogger/v3/blogs/6475475122099132579/posts/"
-let getPostFilters = "?fields=content,title,published,url&key=AIzaSyAdOAfHb0dd2yQfcwUzjANM8HRFwrKajvI"
 var currentPageindex;
 var blogIds = []
 
@@ -14,15 +13,18 @@ let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday
       {
         return;
       }
+      
       url = metaDataUrl
       blogIds = [];
       $.ajax({
         type: "GET",
         async: false,
         url: url,
-        success: function(xml) {
-          for (var i = 0; i < xml.items.length; i++){
-            blogIds.push(xml.items[i].id)
+        success: function(response) {
+          var parsedJson = JSON.parse(response);
+
+          for (var i = 0; i < parsedJson.items.length; i++){
+            blogIds.push(parsedJson.items[i].id)
             } 
             
           }
@@ -32,10 +34,10 @@ let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday
 function setPostViaId(index,id) {
   $.ajax({
     type: "GET",
-    async: false,
-    url: getPostURL + id + getPostFilters,
-    success: function(postResponse) {
-      loadPostAtIndex(index,postResponse)
+    url: postUrl + id,
+    success: function(response) {
+      var parsedJson = JSON.parse(response);
+      loadPostAtIndex(index,parsedJson)
     }
     });
 }
@@ -78,7 +80,7 @@ function loadPostAtIndex(index,post)
 }
 
 async function loadBlog(pageIndex) {
-  await getPostIds()
+  getPostIds()
   currentPageindex = pageIndex;
   for (var i = 0; i < postsPerPage; i++){
     if(blogIds[(currentPageindex * postsPerPage)+ i]!=null){
