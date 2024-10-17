@@ -1,8 +1,11 @@
 let metaDataUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/ids"
-let postUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/post?id="
+let getPostUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/post?id="
+let getPostsUrl = "https://1qbqdowij1.execute-api.us-east-2.amazonaws.com/posts?ids="
+
 
 var currentPageindex;
 var blogIds = []
+var currentPageJson
 
 
 let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
@@ -22,7 +25,7 @@ let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday
         url: url,
         success: function(response) {
           var parsedJson = JSON.parse(response);
-
+          currentPageJson = parsedJson
           for (var i = 0; i < parsedJson.items.length; i++){
             blogIds.push(parsedJson.items[i].id)
             } 
@@ -31,15 +34,38 @@ let daysOfTheWeek = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday
         })
       }
 
-function setPostViaId(index,id) {
+function getPostsUsingIds (){
+  var idsAsString = ""
+  
+  startPostIndex = postsPerPage * currentPageindex;
+  lastPostIndex = (postsPerPage * currentPageindex) + postsPerPage;
+
+  for (var i = startPostIndex; i < lastPostIndex; i++) {
+    if (blogIds[i] != null){
+      idsAsString = idsAsString + (blogIds[i])
+      if(blogIds[i+1] != null && (i+1) < lastPostIndex)
+      {
+        idsAsString = idsAsString + ","
+      }
+  }
+  }
+
   $.ajax({
     type: "GET",
-    url: postUrl + id,
+    url: getPostsUrl + idsAsString,
+    async: false,
     success: function(response) {
       var parsedJson = JSON.parse(response);
-      loadPostAtIndex(index,parsedJson)
+      currentPageJson = parsedJson;
     }
     });
+}
+
+function loadAllPosts (){
+  getPostsUsingIds()
+  for (var i = 0; i < currentPageJson.length; i++ ) {
+    loadPostAtIndex(i,currentPageJson[i])
+  }
 }
 
 function loadPostAtIndex(index,post)
@@ -85,12 +111,12 @@ async function loadBlog(pageIndex) {
   for (var i = 0; i < postsPerPage; i++){
     if(blogIds[(currentPageindex * postsPerPage)+ i]!=null){
         document.getElementById("content-row-" + i).style.display = "flex"
-        setPostViaId(i,blogIds[(currentPageindex * postsPerPage)+i])
       }
       else {
         document.getElementById("content-row-" + i).style.display = "none"
       }
   }
+  loadAllPosts()
   applyClickScriptToAllImages()
 
   if (document.getElementById("blog-nav-button-0") == null){
