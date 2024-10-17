@@ -78,4 +78,7 @@ body {
   .content-wrapper { 
   padding-top: var(--navBarSpaceMobile);
   }
+  .mobil-hidden {
+    display: none;
+  }
 }
