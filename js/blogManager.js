@@ -127,6 +127,7 @@ async function loadBlog(pageIndex) {
 
 function createButtons(){
   
+  document.getElementById("blog-loading-text").style.display = "none"
   var parent = document.getElementById("nav-bar-mid-section")
 
   for(var i = 0; i < blogIds.length/postsPerPage ; i++) {

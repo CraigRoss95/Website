@@ -77,7 +77,7 @@ function loadContentTo(link
 ) { 
     var delayTime = 200;
     if (document.documentElement.scrollTop < 10){
-        delayTime = 0
+        delayTime = 10
     }
     fileName = link;
     updateNavBar(link);
