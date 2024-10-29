@@ -3,13 +3,18 @@
 
 // Write your JavaScript code.
 
-function Project(title, imageURL, description) {
-    this.title = title;
-    this.imageURL = imageURL;
-    this.description = description;
-}
-
 var entryArr = [];
+var portfolioJson;
+$.ajax ({
+    url: "htmlContent/portfolioContent.json",
+    data: portfolioJson,
+    async: false,
+    success : function (data)
+    {
+        portfolioJson = data;
+    }
+})
+
 
 //make these the same size
 var fis = new Image();
