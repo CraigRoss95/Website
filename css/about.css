@@ -24,6 +24,13 @@ h3 {
     padding-top: 2em;
 }
 
+.skill-icon {
+    font-size: 3rem;
+}
+.skill-text{
+    
+}
+
 @media (max-width:767px)
 {
     .content-image-col{

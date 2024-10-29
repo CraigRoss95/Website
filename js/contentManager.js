@@ -206,7 +206,6 @@ function getFilteredImages(){
     var allElements = document.getElementsByTagName("img");
     var responseElements = [];
     let imageIdBlackList = ["photo-viewer-image"]
-    let imageSrcList = "Dixie.png"
     for(var i = 0; i < allElements.length; i++){
         if(
             
@@ -224,7 +223,7 @@ function getFilteredImages(){
 }
 
 function isOnBlackListedClassList(element) {
-    let imageClassBlackList = ["clickable-icon-image"]
+    let imageClassBlackList = ["clickable-icon-image", "no-zoom"]
 
     if (element.classList.length == 0) {
         return false
