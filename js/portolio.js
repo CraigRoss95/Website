@@ -39,11 +39,16 @@ function createPortfolioButtons() {
 function createPortfolioApp() {
     loadPortfolioContent();
     createPortfolioButtons();
-    clickIcon(0);
+    changePortfolioTo(0);
 }
 
 //keep this
 function clickIcon(id) {
+    changePortfolioTo(id);
+    removeReminderText();
+}
+
+function changePortfolioTo(id){
     document.getElementById("portfolio-title").textContent = portfolioJson[id].title;
     document.getElementById("portfolio-image").src = portfolioJson[id].imageSrc;
     document.getElementById("portfolio-desc").textContent = portfolioJson[id].text;
@@ -61,7 +66,7 @@ function clickIcon(id) {
         var titleRow = document.createElement("div")
 
 
-        colContainer.classList.add("col-4");;
+        colContainer.classList.add("col-3");;
         colContainer.style.textAlign = "center";
         
         newIcon.classList.add(portfolioJson[id].skills[i].iconClass);
@@ -80,8 +85,14 @@ function clickIcon(id) {
         colContainer.appendChild(titleRow);
         iconRow.appendChild(newIcon);
         titleRow.appendChild(newSkill);
+    }
 
+}
 
-
+function removeReminderText() {
+    var reminderRow = document.getElementById("portfolio-reminder-text")
+    if (reminderRow.style.visibility == "visible" || reminderRow.style.visibility == "")
+    {
+        reminderRow.style.visibility = "hidden";
     }
 }
