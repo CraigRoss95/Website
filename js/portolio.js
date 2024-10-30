@@ -47,4 +47,37 @@ function clickIcon(id) {
     document.getElementById("portfolio-title").textContent = portfolioJson[id].title;
     document.getElementById("portfolio-image").src = portfolioJson[id].imageSrc;
     document.getElementById("portfolio-desc").textContent = portfolioJson[id].text;
+    document.getElementById("portfolio-year").textContent = portfolioJson[id].year;
+    var skillsContainer = document.getElementById("skills-used-container");
+    skillsContainer.replaceChildren();
+    for(var i = 0; i < portfolioJson[id].skills.length; i ++) {
+        var colContainer = document.createElement("div")
+        var newSkill = document.createElement("p");
+        var newIcon = document.createElement("i");
+        var iconRow = document.createElement("div")
+        var titleRow = document.createElement("div")
+
+
+        colContainer.classList.add("col-4");;
+        colContainer.style.textAlign = "center";
+        
+        newIcon.classList.add(portfolioJson[id].skills[i].iconClass);
+        newIcon.classList.add("skill-icon")
+        
+        newSkill.innerText = newSkill.innerText + portfolioJson[id].skills[i].skillName
+        newSkill.classList.add("skill-text");
+        iconRow.classList.add("row");
+        iconRow.style.justifyContent = "center";
+        titleRow.classList.add("row");
+        titleRow.style.justifyContent = "center";
+
+        skillsContainer.append(colContainer);
+        colContainer.appendChild(iconRow);
+        colContainer.appendChild(titleRow);
+        iconRow.appendChild(newIcon);
+        titleRow.appendChild(newSkill);
+
+
+
+    }
 }

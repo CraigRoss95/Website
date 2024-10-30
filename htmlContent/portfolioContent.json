@@ -9,8 +9,25 @@
       "skills": [
         {
             "skillName": "Spring",
-            "iconClass": "fa fa-test"
+            "iconClass": "devicon-spring-original"
+        },
+        {
+            "skillName": "Spring",
+            "iconClass": "devicon-spring-original"
+        },
+        {
+            "skillName": "Spring",
+            "iconClass": "devicon-spring-original"
+        },
+        {
+            "skillName": "Spring",
+            "iconClass": "devicon-spring-original"
+        },
+        {
+            "skillName": "Spring",
+            "iconClass": "devicon-spring-original"
         }
+        
       ]
     },
     {
