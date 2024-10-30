@@ -2,10 +2,10 @@
     {
       "title" : "FIS",
       "link" : "https://www.fisglobal.com/",
-      "year" : "2021 - 2024",
+      "year" : "Spring 2021 - Winter 2024",
       "imageSrc" : "Assets/portfolio-pictures/FIS.png",
       "iconImageSrc" : "Assets/icons/FIS-icon.jpg",
-      "text" : "I currently work at FIS (Fidelity National Information Services), on the Tokens Team. At FIS we use a microservice architecture, we are all cogs in a much larger machine, our cog is the Tokens Service. This is where I learned a tech stack that was almost entirely new to me including Java, Spring, and Docker. I started this job in the summer of 2021, and have been working from my home office ever since.",
+      "text" : "My most recent position was at a company called FIS, working in the eCommerce division. The microservice our team was assigned to was the Tokens Service, a tool for tokenizing cardholder information. Our clients included Starbucks, Deliveroo, Etsy, as well as may other eCommerce platforms. The main draw of our service was that if credit card information is stored in token it means that our clients don’t need to be as strict with Payment Card Industry standards, instead that burden fell on us. Our tech stack included Java, Spring,  AWS, and Gradle. My responsibilities, in adition to writing code, included testing our API using Karate, Deploying code using Teraform Scripts, and monitoring Splunk during on call shifts. In early Winter of 2024 my position was eliminated during a de-merger. I learned a majority of my software development skills at FIS and I am eternally grateful for my time there.",
       "skills": [
         {
             "skillName": "Java",
@@ -36,11 +36,11 @@
     },
     {
         "title" : "DonorView",
-        "year" : "2020 - 2020",
+        "year" : "Winter 2020 - Summer 2020",
         "link" : "https://www.donorview.com/",
         "imageSrc" : "Assets/portfolio-pictures/dv.png",
         "iconImageSrc" : "Assets/icons/dv-icon.jpg",
-        "text" : "My recent position at DonorView responsibilities insured my skills in web development and database skills were maximised. I used my ASP.NET, HTML, CSS, JavaScript, and SQL skills to create and maintain features. The largest feature that I worked on during my time at DonorView was the Automatic Email Scheduler, a scheduler that queries constituent tables for constituents in need of an email. This position was a great opportunity for me to learn how to write industry quality code and use industry quality tools. As of April 2020 our teams started working from home and having our Agile meetings on Zoom. Unfortunately, my position was eliminated due to circumstances related to the pandemic.",
+        "text" : "My first position out of college was at a company by the name of DonorView, working alongside a small team of three other developers. I used my ASP.NET, HTML, CSS, and SQL skills to create and maintain features for the all in one fundraising SaaS by the same name. The largest feature that I worked on during my time at DonorView was the Automatic Email Scheduler, a scheduler that queries constituent tables for constituents in need of an email. This position was a great opportunity for me to learn how to write industry quality code and use industry quality tools. As of April 2020 our teams started working from home and having our Agile meetings on Zoom. Unfortunately, my position was eliminated due to circumstances related to the pandemic in August 2020.",
         "skills": [{
           "skillName": "C#",
           "iconClass": "devicon-csharp-plain"
@@ -193,7 +193,7 @@
         "link" : "https://github.com/CraigRoss95/RPG",
         "imageSrc" : "Assets/portfolio-pictures/RPG.png",
         "iconImageSrc" : "Assets/icons/RPG-icon.png",
-        "text" :"The Third Person Camera Demo was started as the precursor to Jonathan(see next entry). My highschool friends wanted to make a game together, so I joined them as the team's only programmer. When half of the team dropped out, the original adventure puzzle game was dropped. As a result so was the games third person camera. The camera controller was heavily inspired by the cameras in “A Hat in Time” and “Super Mario 64”. ",
+        "text" :"I started this project in Spring of 2021, shortly after confirming the offer for a job at FIS that would start during Summer 2021. My contact at the company told me that my team would be using C# to work on our projects, so I decided a project in Unity would be a good way to refresh my knowledge of C#. The game was based off the Mario and Luigi action RPG series, the idea was that every character had a button assigned to them. Features included timed action commands for both dogging and attacking, player animations, and a menu system made from scratch. I was really proud with the way my player action economy system came out, every team member was assigned an action point that can be used once a turn. Action points can be used by multiple characters at once for more powerful effects. Unfortunately when my job at FIS did start up I learned that we were, in fact, using Java instead of C# and that my time would have been better spent making a Spring API. I feel like this project has the most polish out of all of my other personal projects and I hope to package it some day in a more consumable format, like a demo.",
         "skills": [
         {
             "skillName": "Unity",
