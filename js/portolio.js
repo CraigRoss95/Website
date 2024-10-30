@@ -66,6 +66,7 @@ function clickIcon(id) {
         
         newSkill.innerText = newSkill.innerText + portfolioJson[id].skills[i].skillName
         newSkill.classList.add("skill-text");
+        
         iconRow.classList.add("row");
         iconRow.style.justifyContent = "center";
         titleRow.classList.add("row");
