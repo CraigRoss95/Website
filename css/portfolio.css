@@ -1,15 +1,17 @@
 ﻿.clickable-icon{
     cursor: pointer;
     margin: 3px;
-    height: 36px;
-    width: 36px;
+    height: 38px;
+    width: 38px;
     padding:0;
     size:32px;
+    border: solid green;
 }
 .clickable-icon-image{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    size:32px;
 }
 button.accept-policy {
     font-size: 1rem;
@@ -18,4 +20,12 @@ button.accept-policy {
 
 #portfolio-image{
     width: 100%;
+}
+
+.selected-icon {
+    border: solid goldenrod;
+}
+
+.clickable-icon:hover{
+    border: solid gold;
 }

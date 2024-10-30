@@ -1,5 +1,6 @@
 ﻿var entryArr = [];
 var portfolioJson;
+var currentIndex = 0;
 
 function loadPortfolioContent() {
     $.ajax ({
@@ -86,7 +87,7 @@ function changePortfolioTo(id){
         iconRow.appendChild(newIcon);
         titleRow.appendChild(newSkill);
     }
-
+    updateCurrentIndex(id)
 }
 
 function removeReminderText() {
@@ -95,4 +96,15 @@ function removeReminderText() {
     {
         reminderRow.style.visibility = "hidden";
     }
+}
+
+function updateCurrentIndex(id){
+    var currentButton = document.getElementById("portfolio-button-" + currentIndex)
+    var nextButton = document.getElementById("portfolio-button-" + id)
+    if(currentButton.classList.contains("selected-icon"))
+    {
+        currentButton.classList.remove("selected-icon")
+    }
+    currentIndex = id;
+    nextButton.classList.add("selected-icon")
 }
