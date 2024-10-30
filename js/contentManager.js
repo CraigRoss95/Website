@@ -103,7 +103,8 @@ function linkSwitchStatment(link)
             break;
         case "./portfolio.html":
         case "./portfolio":
-            populateRowsViaHtml("htmlContent/portfolioContent.html");
+            $.when(populateRowsViaHtml("htmlContent/portfolioContent.html"))
+            .then(createPortfolioApp());
             break;
         case "./blog.html":
         case "./blog":

@@ -3,7 +3,7 @@
       "title" : "FIS",
       "link" : "",
       "year" : "2021 - 2024",
-      "imageSrc" : "Assets/portfolio-pictures/FIS.jpg",
+      "imageSrc" : "Assets/portfolio-pictures/FIS.png",
       "iconImageSrc" : "Assets/icons/FIS-icon.jpg",
       "text" : "I currently work at FIS (Fidelity National Information Services), on the Tokens Team. At FIS we use a microservice architecture, we are all cogs in a much larger machine, our cog is the Tokens Service. This is where I learned a tech stack that was almost entirely new to me including Java, Spring, and Docker. I started this job in the summer of 2021, and have been working from my home office ever since.",
       "skills": [
@@ -17,7 +17,7 @@
         "title" : "DonorView",
         "year" : "2020 - 2020",
         "link" : "",
-        "imageSrc" : "Assets/portfolio-pictures/dv.jpg",
+        "imageSrc" : "Assets/portfolio-pictures/dv.png",
         "iconImageSrc" : "Assets/icons/dv-icon.jpg",
         "text" : "My recent position at DonorView responsibilities insured my skills in web development and database skills were maximised. I used my ASP.NET, HTML, CSS, JavaScript, and SQL skills to create and maintain features. The largest feature that I worked on during my time at DonorView was the Automatic Email Scheduler, a scheduler that queries constituent tables for constituents in need of an email. This position was a great opportunity for me to learn how to write industry quality code and use industry quality tools. As of April 2020 our teams started working from home and having our Agile meetings on Zoom. Unfortunately, my position was eliminated due to circumstances related to the pandemic.",
         "skills": [
@@ -37,7 +37,7 @@
         "title" : "Apocablocalypse",
         "year" : "Fall 2017",
         "link" : "",
-        "imageSrc" : "Assets/portfolio-pictures/A.png",
+        "imageSrc" : "Assets/portfolio-pictures/A.jpg",
         "iconImageSrc" : "Assets/icons/A-icon.png",
         "text" : "This was a game I worked on with some friends at Bridgewater State University. Apocablocalypse was my first time working on a project concurrently with other teammates using source control. The tools we used then are the same tools that I would use on later projects. These tools include: Git, Unity, and Trello. This was the first time in my career as a programmer that I really felt like I was collaborated with me peers. As a perk of being roommates with my team members I could give and receive feedback from across the room. This project was a very important turning point in my career; up until this point I had worked alone on all of my projects. When I worked in a group we were always pair programming. I was afraid that software engineering was going to be a very solitary job. What this project taught me is, that with proper source control, working together on software can greatly improve the quality of not only the code, but the experience of crafting software as a whole.",
         "skills": [
@@ -58,7 +58,7 @@
         "year" : "2020 - Current",
         "link" : "",
         "imageSrc" : "Assets/portfolio-pictures/website.png",
-        "iconImageSrc" : "Assets/icons/smole-me.jpg",
+        "iconImageSrc" : "Assets/icons/smoleMe.jpg",
         "text" :"My school's curriculum did not require Computer Science majors to take a web development course. Starting in the Summer of 2019, I began to self teach myself HTML and CSS by watching a YouTube tutorial and reading StackOverflow. While applying for jobs online, I also noticed that some companies listed an optional request for a website link. Having nearly five years of programing under my belt from college I picked up the basics with ease. After a two week HTML and CSS YouTube series I decided to start researching domains and build my website. In the future, I intend to learn more JavaScript to further enhance this website.",
         "skills": [
         ]
@@ -87,8 +87,8 @@
         "title" : "Untitled RPG Game",
         "year" : "Summer 2022",
         "link" : "",
-        "imageSrc" : "Assets/portfolio-pictures/Jonathan.png",
-        "iconImageSrc" : "Assets/icons/Jonathan-icon.png",
+        "imageSrc" : "Assets/portfolio-pictures/RPG.png",
+        "iconImageSrc" : "Assets/icons/RPG-icon.png",
         "text" :"The Third Person Camera Demo was started as the precursor to Jonathan(see next entry). My highschool friends wanted to make a game together, so I joined them as the team's only programmer. When half of the team dropped out, the original adventure puzzle game was dropped. As a result so was the games third person camera. The camera controller was heavily inspired by the cameras in “A Hat in Time” and “Super Mario 64”. ",
         "skills": [
         ]
