@@ -50,6 +50,9 @@ function clickIcon(id) {
     document.getElementById("portfolio-year").textContent = portfolioJson[id].year;
     var skillsContainer = document.getElementById("skills-used-container");
     skillsContainer.replaceChildren();
+
+    document.getElementById("link-to-project").innerText = portfolioJson[id].link;
+    document.getElementById("link-to-project").setAttribute("href", portfolioJson[id].link);
     for(var i = 0; i < portfolioJson[id].skills.length; i ++) {
         var colContainer = document.createElement("div")
         var newSkill = document.createElement("p");
