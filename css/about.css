@@ -24,8 +24,11 @@ h3 {
     padding-top: 2em;
 }
 
-#special-header {
-    background-color: burlywood;
+.skill-icon {
+    font-size: 3rem;
+}
+.skill-text{
+    
 }
 
 @media (max-width:767px)

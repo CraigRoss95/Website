@@ -7,6 +7,9 @@ function loadHeader(){
         case "./blog":
             loadHeaderFromURL("./htmlTemplates/headers/blogNav.html")
             break;
+        case "./":
+            loadHeaderFromURL("./htmlTemplates/headers/aboutHeader.html")
+            break;
         default:
             removeHeader();
             break;

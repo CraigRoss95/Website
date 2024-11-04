@@ -9,10 +9,19 @@ class SpecialContent extends HTMLElement {
         fadeInDoc();
     }   
 }
+var sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+async function scrollToTop() {
+    while(window.scrollY > 0){
+        window.scrollTo({top: window.scrollY - 40, behavior: "auto"})
+        console.log("scrolling")
+        await sleep(1);
+    }
+    await sleep(100);
+        
 }
+
+
 function setupTemplates() {
     $.ajax({
         url: "htmlTemplates/contentRow.html",
@@ -73,21 +82,18 @@ function populateRowsViaJson(fileName) {
 }
 
 //for switching contents of page
-function loadContentTo(link
+async function loadContentTo(link
 ) { 
-    var delayTime = 200;
-    if (document.documentElement.scrollTop < 10){
-        delayTime = 10
-    }
+    
+    
     fileName = link;
     updateNavBar(link);
     fudgeUrl(link);
-    scrollToTop();
     loadHeader();
-    setTimeout(() => { 
-        $.when(linkSwitchStatment(link))
-        .then(applyClickScriptToAllImages())
-    }, delayTime);
+    await scrollToTop();
+    $.when(linkSwitchStatment(link))
+    .then(applyClickScriptToAllImages())
+    
     
     
 }
@@ -103,7 +109,8 @@ function linkSwitchStatment(link)
             break;
         case "./portfolio.html":
         case "./portfolio":
-            populateRowsViaHtml("htmlContent/portfolioContent.html");
+            $.when(populateRowsViaHtml("htmlContent/portfolioContent.html"))
+            .then(createPortfolioApp());
             break;
         case "./blog.html":
         case "./blog":
@@ -191,62 +198,5 @@ function createEmptyContentBoxes() {
 
 }
 
-function applyClickScriptToAllImages()
-{
-    var imageElements = getFilteredImages()
-    for(var i = 0; i < imageElements.length; i++) {
-        if (imageElements[i].classList.contains("clickable-image") == false) {
-            imageElements[i].classList.add("clickable-image")
-            imageElements[i].onclick = (function(event) {zoomImage(event)})
-        }
-    }
-}
-
-function getFilteredImages(){
-    var allElements = document.getElementsByTagName("img");
-    var responseElements = [];
-    let imageIdBlackList = ["photo-viewer-image"]
-    let imageSrcList = "Dixie.png"
-    for(var i = 0; i < allElements.length; i++){
-        if(
-            
-            ((allElements[i].src == "") == false
-            && allElements[i].src.includes("Dixie.png") == false)
-
-            && ((allElements[i].id == "") == false
-            ||imageIdBlackList.includes(allElements[i].id) == false)
-        
-            && isOnBlackListedClassList(allElements[i])== false) {
-            responseElements.push(allElements[i])
-        }
-    }
-    return responseElements
-}
-
-function isOnBlackListedClassList(element) {
-    let imageClassBlackList = ["clickable-icon-image"]
-
-    if (element.classList.length == 0) {
-        return false
-    }
-
-    for (var i = 0; i < imageClassBlackList.length; i++){
-        if(element.classList.contains(imageClassBlackList[i])) {
-            return true
-        }
-       
-    }
-    return false
-}
-
-function zoomImage(imageElement) {
-    document.getElementById("photo-viewer-image").src = imageElement.target.src;
-    document.getElementById("photo-viewer-background").style.visibility = "visible";
-}
-
-function closeImage() {
-
-    document.getElementById("photo-viewer-background").style.visibility = "hidden";
-}
 customElements.define('special-content', SpecialContent);
 

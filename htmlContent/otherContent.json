@@ -5,6 +5,16 @@
       "text" : "htmlContent/otherHtmlTextFields/myFamily.html"
     },
     {
+      "title" : "NAS Project",
+      "image" : "Assets/vhs.png",
+      "text" : "htmlContent/otherHtmlTextFields/nas.html"
+    },
+    {
+      "title" : "DJ Moonlighting",
+      "image" : "Assets/dj.jpg",
+      "text" : "htmlContent/otherHtmlTextFields/dj.html"
+    },
+    {
       "title" : "Baked Beans Recipe",
       "image" : "Assets/beanpot.png",
       "text" : "htmlContent/otherHtmlTextFields/bakedBeansRecipe.html"
