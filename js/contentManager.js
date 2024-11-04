@@ -9,10 +9,19 @@ class SpecialContent extends HTMLElement {
         fadeInDoc();
     }   
 }
+var sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+async function scrollToTop() {
+    while(window.scrollY > 0){
+        window.scrollTo({top: window.scrollY - 40, behavior: "auto"})
+        console.log("scrolling")
+        await sleep(1);
+    }
+    await sleep(100);
+        
 }
+
+
 function setupTemplates() {
     $.ajax({
         url: "htmlTemplates/contentRow.html",
@@ -73,21 +82,18 @@ function populateRowsViaJson(fileName) {
 }
 
 //for switching contents of page
-function loadContentTo(link
+async function loadContentTo(link
 ) { 
-    var delayTime = 200;
-    if (document.documentElement.scrollTop < 10){
-        delayTime = 10
-    }
+    
+    
     fileName = link;
     updateNavBar(link);
     fudgeUrl(link);
-    scrollToTop();
     loadHeader();
-    setTimeout(() => { 
-        $.when(linkSwitchStatment(link))
-        .then(applyClickScriptToAllImages())
-    }, delayTime);
+    await scrollToTop();
+    $.when(linkSwitchStatment(link))
+    .then(applyClickScriptToAllImages())
+    
     
     
 }
